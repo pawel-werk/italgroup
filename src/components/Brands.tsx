@@ -1,35 +1,63 @@
 import { SITE_DATA } from '../data/content';
 import Reveal from './Reveal';
+import SectionHeader from './SectionHeader';
+import { ArrowRight } from './Icons';
 
 export default function Brands() {
+  const activeBrands = SITE_DATA.brands.filter(b => b.enabled);
+  const brandsWithLogos = activeBrands.filter(b => b.logo);
+
   return (
-    <section id="brands" className="py-24 bg-surface">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="brands" className="py-32 bg-ivory">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <Reveal>
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-serif text-ink mb-4">Nasze Marki</h2>
-            <p className="text-ink-light">Wyselekcjonowane, prestiżowe urządzenia i armatura do Twoich projektów.</p>
+          <SectionHeader number="01" title="Nasze Portfolio" />
+        </Reveal>
+
+        {/* Logo Strip */}
+        <Reveal delay={200}>
+          <div className="flex flex-wrap items-center justify-center gap-12 md:gap-24 mb-24 opacity-80">
+            {brandsWithLogos.map((brand) => (
+              <img 
+                key={brand.name}
+                src={brand.logo!} 
+                alt={brand.name} 
+                className="h-8 md:h-10 object-contain grayscale mix-blend-multiply hover:grayscale-0 transition-all duration-700" 
+                loading="lazy"
+              />
+            ))}
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {SITE_DATA.brands.map((brand, idx) => (
-            <Reveal key={brand.name} delay={idx * 100}>
-              <div className="group bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
-                <div className="h-24 flex items-center justify-center mb-6">
-                  {brand.img ? (
-                    <img src={brand.img} alt={`Logo ${brand.name}`} className="max-h-16 max-w-full object-contain grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500" loading="lazy" />
-                  ) : (
-                    <span className="text-2xl font-serif font-bold text-gray-400 group-hover:text-ink transition-colors">{brand.name}</span>
+        {/* Editorial List */}
+        <div className="border-t border-sand">
+          {activeBrands.map((brand, idx) => (
+            <Reveal key={brand.name} delay={idx * 50}>
+              <div className="group relative border-b border-sand hover:bg-ink hover:text-ivory transition-colors duration-500 flex flex-col md:flex-row md:items-center py-8 md:py-12 px-4 -mx-4 md:mx-0 md:px-6">
+                <div className="text-[11px] font-sans uppercase tracking-[0.25em] text-stone group-hover:text-champagne w-16 mb-4 md:mb-0 transition-colors">
+                  {String(idx + 1).padStart(2, '0')}
+                </div>
+                <div className="md:w-1/3 pr-8">
+                  <h3 className="text-3xl font-serif tracking-tight">{brand.name}</h3>
+                </div>
+                <div className="md:w-1/2 mt-4 md:mt-0">
+                  <p className="text-stone group-hover:text-ivory/70 transition-colors font-light text-lg">
+                    {brand.desc}
+                  </p>
+                </div>
+                <div className="mt-6 md:mt-0 md:w-1/6 flex md:justify-end">
+                  {brand.link !== '#' && (
+                    <a 
+                      href={brand.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="inline-flex items-center gap-3 text-[11px] font-sans uppercase tracking-[0.25em] text-ink group-hover:text-ivory transition-all duration-500"
+                    >
+                      <span>Odwiedź</span>
+                      <span className="transform group-hover:translate-x-2 transition-transform duration-500"><ArrowRight /></span>
+                    </a>
                   )}
                 </div>
-                <h3 className="text-xl font-semibold text-ink mb-3">{brand.name}</h3>
-                <p className="text-sm text-ink-light flex-grow mb-6">{brand.desc}</p>
-                {brand.link !== '#' && (
-                  <a href={brand.link} target="_blank" rel="noopener noreferrer" className="text-brand font-medium text-sm inline-flex items-center gap-1 hover:text-brand-dark transition-colors mt-auto">
-                    Odwiedź stronę marki <span aria-hidden="true">&rarr;</span>
-                  </a>
-                )}
               </div>
             </Reveal>
           ))}

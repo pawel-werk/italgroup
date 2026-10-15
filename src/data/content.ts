@@ -13,15 +13,15 @@ export const SITE_DATA = {
     mini: "https://www.italgroup.pl/image/logo-IT-mini.jpg"
   },
   brands: [
-    { name: "Villeroy & Boch", img: "https://www.italgroup.pl/image/villeroy_boch.jpg", link: "http://www.villeroy-boch.pl/", desc: "Ekskluzywna ceramika i zlewozmywaki kuchenne najwyższej klasy." },
-    { name: "ILVE", img: "https://www.italgroup.pl/image/ilve.jpg", link: "http://www.ilve.pl/", desc: "Ręcznie robione we Włoszech, profesjonalne kuchnie wolnostojące i AGD." },
-    { name: "Temptech", img: "https://www.italgroup.pl/image/temptech.jpg", link: "http://www.temptech.pl/", desc: "Eksperci w dziedzinie przechowywania wina i winierek do zabudowy." },
-    { name: "Gorenje Plus", img: "https://www.italgroup.pl/image/gorenjeplus-logo.png", link: "http://www.gorenjeplus.com/pl/", desc: "Innowacyjne urządzenia do zabudowy z ekskluzywnych linii wzorniczych." },
-    { name: "HITACHI", img: "", link: "#", desc: "Nowoczesne i innowacyjne chłodziarko-zamrażarki wielodrzwiowe." },
-    { name: "KITCHORA", img: "", link: "#", desc: "Wysokiej jakości armatura i akcesoria kuchenne o unikalnym designie." },
-    { name: "Fulgor Milano", img: "", link: "#", desc: "Włoskie dziedzictwo i innowacja w luksusowym sprzęcie do gotowania." },
-    { name: "Cata / Nodor", img: "", link: "#", desc: "Specjaliści od wentylacji kuchennej, okapów i sprzętu do zabudowy." },
-    { name: "Galvamet", img: "", link: "#", desc: "Włoskie okapy kuchenne łączące wysoką technologię z nowoczesnym stylem." }
+    { name: "Villeroy & Boch", logo: "https://www.italgroup.pl/image/villeroy_boch.jpg", link: "http://www.villeroy-boch.pl/", desc: "Ekskluzywna ceramika i zlewozmywaki kuchenne najwyższej klasy.", enabled: true },
+    { name: "ILVE", logo: "https://www.italgroup.pl/image/ilve.jpg", link: "http://www.ilve.pl/", desc: "Ręcznie robione we Włoszech, profesjonalne bloki kuchenne wolnostojące.", enabled: true },
+    { name: "Temptech", logo: "https://www.italgroup.pl/image/temptech.jpg", link: "http://www.temptech.pl/", desc: "Eksperci w dziedzinie przechowywania wina i winierek do zabudowy.", enabled: true },
+    { name: "Gorenje Plus", logo: "https://www.italgroup.pl/image/gorenjeplus-logo.png", link: "http://www.gorenjeplus.com/pl/", desc: "Innowacyjne urządzenia z ekskluzywnych linii wzorniczych.", enabled: true },
+    { name: "HITACHI", logo: null, link: "#", desc: "Nowoczesne chłodziarko-zamrażarki wielodrzwiowe o minimalistycznym wykończeniu.", enabled: true },
+    { name: "KITCHORA", logo: null, link: "#", desc: "Awangardowa armatura kuchenna łącząca formę z funkcją.", enabled: true },
+    { name: "Fulgor Milano", logo: null, link: "#", desc: "Luksusowy sprzęt do gotowania z głębokim, włoskim rodowodem.", enabled: true },
+    { name: "Cata / Nodor", logo: null, link: "#", desc: "Zaawansowane systemy wentylacji kuchennej i okapy premium.", enabled: true },
+    { name: "Galvamet", logo: null, link: "#", desc: "Zintegrowane rozwiązania wyciągowe i architektoniczne okapy.", enabled: true }
   ],
   team: [
     { role: "Biuro", name: "Marek Kubski", phone: ["+48 512 376 017", "+48 71 385 08 96"], email: "marek@italgroup.pl" },

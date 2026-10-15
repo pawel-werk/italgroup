@@ -7,7 +7,7 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="relative w-full" id="main-content">
+    <div className="relative w-full overflow-x-hidden" id="main-content">
       <Navbar />
       <main>
         <Hero />

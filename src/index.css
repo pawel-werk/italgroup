@@ -1,35 +1,46 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand: #009246;      /* Włoska zieleń z logo */
-  --color-brand-dark: #007336; 
-  --color-accent: #CE2B37;     /* Włoska czerwień z logo */
-  --color-surface: #FAFAFA;    /* Tło strony */
-  --color-ink: #222222;        /* Kolor tekstu */
-  --color-ink-light: #555555;
+  --color-ink: #0C0C0D;
+  --color-ink-soft: #1A1A1C;
+  --color-ivory: #F5F2EC;
+  --color-sand: #E7E1D6;
+  --color-stone: #8A857B;
+  --color-champagne: #8C7348;
   
   --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
-  --font-serif: 'Playfair Display', ui-serif, Georgia, serif;
+  --font-serif: 'Cormorant Garamond', ui-serif, Georgia, serif;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
+body {
+  overflow-x: hidden;
+}
+
+*:focus-visible {
+  outline: 1px solid var(--color-champagne);
+  outline-offset: 4px;
+}
+
+@keyframes slowZoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.06); }
+}
+
+.animate-slow-zoom {
+  animation: slowZoom 20s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
+  html { scroll-behavior: auto; }
+  .animate-slow-zoom { animation: none; transform: scale(1); }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-}
-
-/* Wygładzanie cieni i fokusu */
-*:focus-visible {
-  outline: 2px solid var(--color-brand);
-  outline-offset: 2px;
 }
