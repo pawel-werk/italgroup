@@ -24,10 +24,11 @@ export default function Hero() {
             
             <Reveal delay={300}>
               <div className="flex flex-col sm:flex-row gap-4">
-                <a href="#brands" className="bg-sage-deep text-white px-8 py-3.5 rounded-full font-semibold text-center hover:bg-ink transition-colors shadow-sm">
+                {/* Zamienione klasy miejscami: Odkryj marki jest teraz outline, a Kontakt jest wypełniony */}
+                <a href="#brands" className="bg-white border-2 border-line text-ink px-8 py-3.5 rounded-full font-semibold text-center hover:border-sage-deep hover:text-sage-deep transition-colors">
                   Odkryj marki
                 </a>
-                <a href="#contact" className="bg-white border-2 border-line text-ink px-8 py-3.5 rounded-full font-semibold text-center hover:border-sage-deep hover:text-sage-deep transition-colors">
+                <a href="#contact" className="bg-sage-deep text-white px-8 py-3.5 rounded-full font-semibold text-center hover:bg-ink transition-colors shadow-sm">
                   Rozpocznij współpracę
                 </a>
               </div>
