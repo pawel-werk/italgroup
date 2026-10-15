@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #009246;      /* Włoska zieleń z logo */
+  --color-brand-dark: #007336; 
+  --color-accent: #CE2B37;     /* Włoska czerwień z logo */
+  --color-surface: #FAFAFA;    /* Tło strony */
+  --color-ink: #222222;        /* Kolor tekstu */
+  --color-ink-light: #555555;
+  
+  --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Playfair Display', ui-serif, Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Wygładzanie cieni i fokusu */
+*:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+}
