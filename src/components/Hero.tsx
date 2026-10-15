@@ -1,9 +1,6 @@
-import { SITE_DATA } from '../data/content';
 import Reveal from './Reveal';
 
 export default function Hero() {
-  const brandsCount = SITE_DATA.brands.filter(b => b.enabled).length;
-
   return (
     <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 bg-white overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
@@ -41,24 +38,11 @@ export default function Hero() {
             <Reveal delay={200}>
               <div className="relative rounded-3xl overflow-hidden aspect-[4/3] lg:aspect-[4/5] shadow-sm shadow-black/5">
                 <img 
-                  src="https://images.unsplash.com/photo-1556909211-36987daf1b96?w=1200&q=80" 
+                  src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1200&q=80" 
                   alt="Jasna i nowoczesna kuchnia premium" 
                   className="w-full h-full object-cover"
                   fetchPriority="high"
                 />
-              </div>
-            </Reveal>
-
-            {/* Pływająca karta */}
-            <Reveal delay={400}>
-              <div className="absolute -bottom-6 -left-6 md:bottom-12 md:-left-12 bg-white p-6 rounded-2xl shadow-xl shadow-black/5 border border-line flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-sage-soft flex items-center justify-center text-sage-deep font-bold text-xl">
-                  {brandsCount}
-                </div>
-                <div>
-                  <p className="text-ink font-bold leading-tight">Europejskich marek</p>
-                  <p className="text-sm text-grey font-medium">w stałej dystrybucji</p>
-                </div>
               </div>
             </Reveal>
           </div>
