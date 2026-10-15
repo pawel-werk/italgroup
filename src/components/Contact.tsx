@@ -44,9 +44,9 @@ export default function Contact() {
               </div>
             </Reveal>
 
-            {/* Mapa dodana pod wizytówką firmy */}
-            <Reveal delay={150}>
-              <div className="w-full h-[320px] rounded-3xl overflow-hidden border border-line shadow-sm shadow-black/5 bg-white">
+            {/* Mapa dociągająca do dołu */}
+            <Reveal delay={150} className="flex-1 flex flex-col">
+              <div className="w-full flex-1 min-h-[320px] rounded-3xl overflow-hidden border border-line shadow-sm shadow-black/5 bg-white">
                 <iframe 
                   src="https://maps.google.com/maps?q=ul.+%C5%81%C4%85kowa+6%2C+55-095+Mirk%C3%B3w&t=&z=13&ie=UTF8&iwloc=&output=embed" 
                   width="100%" 
