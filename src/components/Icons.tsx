@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const ArrowRight = ({ className = "w-5 h-5" }: { className?: string }) => (
   <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.25">
     <path strokeLinecap="square" strokeLinejoin="miter" d="M4 12h16M14 6l6 6-6 6" />
