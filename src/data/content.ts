@@ -9,8 +9,8 @@ export const SITE_DATA = {
     email: "biuro@italgroup.pl"
   },
   logos: {
-    main: "https://www.italgroup.pl/image/logo-IT.png",
-    mini: "https://www.italgroup.pl/image/logo-IT-mini.jpg"
+    main: "https://i.postimg.cc/C1JL57gP/image.png",
+    mini: "https://i.postimg.cc/C1JL57gP/image.png"
   },
   brands: [
     { name: "Villeroy & Boch", logo: "https://www.italgroup.pl/image/villeroy_boch.jpg", link: "http://www.villeroy-boch.pl/", desc: "Ekskluzywna ceramika i zlewozmywaki kuchenne najwyższej klasy.", enabled: true },
