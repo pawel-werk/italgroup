@@ -5,59 +5,49 @@ import { ArrowRight } from './Icons';
 
 export default function Brands() {
   const activeBrands = SITE_DATA.brands.filter(b => b.enabled);
-  const brandsWithLogos = activeBrands.filter(b => b.logo);
 
   return (
-    <section id="brands" className="py-32 bg-ivory">
+    <section id="brands" className="py-24 md:py-32 bg-mist">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <Reveal>
-          <SectionHeader number="01" title="Nasze Portfolio" />
+          <SectionHeader label="Portfolio" title="Marki, którym ufamy" />
         </Reveal>
 
-        {/* Logo Strip */}
-        <Reveal delay={200}>
-          <div className="flex flex-wrap items-center justify-center gap-12 md:gap-24 mb-24 opacity-80">
-            {brandsWithLogos.map((brand) => (
-              <img 
-                key={brand.name}
-                src={brand.logo!} 
-                alt={brand.name} 
-                className="h-8 md:h-10 object-contain grayscale mix-blend-multiply hover:grayscale-0 transition-all duration-700" 
-                loading="lazy"
-              />
-            ))}
-          </div>
-        </Reveal>
-
-        {/* Editorial List */}
-        <div className="border-t border-sand">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
           {activeBrands.map((brand, idx) => (
-            <Reveal key={brand.name} delay={idx * 50}>
-              <div className="group relative border-b border-sand hover:bg-ink hover:text-ivory transition-colors duration-500 flex flex-col md:flex-row md:items-center py-8 md:py-12 px-4 -mx-4 md:mx-0 md:px-6">
-                <div className="text-[11px] font-sans uppercase tracking-[0.25em] text-stone group-hover:text-champagne w-16 mb-4 md:mb-0 transition-colors">
-                  {String(idx + 1).padStart(2, '0')}
-                </div>
-                <div className="md:w-1/3 pr-8">
-                  <h3 className="text-3xl font-serif tracking-tight">{brand.name}</h3>
-                </div>
-                <div className="md:w-1/2 mt-4 md:mt-0">
-                  <p className="text-stone group-hover:text-ivory/70 transition-colors font-light text-lg">
-                    {brand.desc}
-                  </p>
-                </div>
-                <div className="mt-6 md:mt-0 md:w-1/6 flex md:justify-end">
-                  {brand.link !== '#' && (
-                    <a 
-                      href={brand.link} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="inline-flex items-center gap-3 text-[11px] font-sans uppercase tracking-[0.25em] text-ink group-hover:text-ivory transition-all duration-500"
-                    >
-                      <span>Odwiedź</span>
-                      <span className="transform group-hover:translate-x-2 transition-transform duration-500"><ArrowRight /></span>
-                    </a>
+            <Reveal key={brand.name} delay={idx * 100}>
+              <div className="bg-white rounded-2xl p-8 border border-line h-full flex flex-col shadow-sm shadow-black/5 hover:shadow-md transition-shadow duration-300 group">
+                <div className="h-20 flex items-center mb-6">
+                  {brand.logo ? (
+                    <img 
+                      src={brand.logo} 
+                      alt={brand.name} 
+                      className="max-h-12 max-w-full object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <span className="inline-block px-4 py-2 bg-sage-soft text-sage-deep rounded-full text-sm font-bold tracking-tight">
+                      {brand.name}
+                    </span>
                   )}
                 </div>
+                
+                <h3 className="text-xl font-bold text-ink mb-3">{brand.name}</h3>
+                <p className="text-grey font-medium leading-relaxed flex-grow mb-8">
+                  {brand.desc}
+                </p>
+                
+                {brand.link !== '#' && (
+                  <a 
+                    href={brand.link} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="inline-flex items-center gap-2 text-sm font-bold text-sage-deep hover:text-ink transition-colors mt-auto"
+                  >
+                    Odwiedź stronę
+                    <span className="transform group-hover:translate-x-1 transition-transform"><ArrowRight /></span>
+                  </a>
+                )}
               </div>
             </Reveal>
           ))}

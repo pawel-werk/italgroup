@@ -1,12 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, ReactNode } from 'react';
 
 interface RevealProps {
-  children: React.ReactNode;
+  children: ReactNode;
   delay?: number;
-  direction?: 'up' | 'left' | 'right';
 }
 
-export default function Reveal({ children, delay = 0, direction = 'up' }: RevealProps) {
+export default function Reveal({ children, delay = 0 }: RevealProps) {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -18,20 +17,18 @@ export default function Reveal({ children, delay = 0, direction = 'up' }: Reveal
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+      { threshold: 0.1, rootMargin: '0px 0px -30px 0px' }
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
 
-  const directionClass = direction === 'up' ? 'translate-y-8' : direction === 'left' ? 'translate-x-8' : '-translate-x-8';
-
   return (
     <div
       ref={ref}
       style={{ transitionDelay: `${delay}ms` }}
-      className={`transition-all duration-1000 cubic-bezier(0.16, 1, 0.3, 1) ${
-        isVisible ? 'opacity-100 translate-x-0 translate-y-0' : `opacity-0 ${directionClass}`
+      className={`transition-all duration-600 ease-out ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
       }`}
     >
       {children}

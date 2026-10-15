@@ -1,15 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #0C0C0D;
-  --color-ink-soft: #1A1A1C;
-  --color-ivory: #F5F2EC;
-  --color-sand: #E7E1D6;
-  --color-stone: #8A857B;
-  --color-champagne: #8C7348;
+  --color-white: #FFFFFF;
+  --color-mist: #F4F6F4;
+  --color-line: #E3E7E3;
+  --color-grey: #8B938D;
+  --color-ink: #2A322D;
+  --color-sage: #8FAE98;
+  --color-sage-deep: #4F7A5E;
+  --color-sage-soft: #E6EFE8;
   
-  --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
-  --font-serif: 'Cormorant Garamond', ui-serif, Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
 }
 
 html {
@@ -21,22 +22,12 @@ body {
 }
 
 *:focus-visible {
-  outline: 1px solid var(--color-champagne);
+  outline: 2px solid var(--color-sage-deep);
   outline-offset: 4px;
-}
-
-@keyframes slowZoom {
-  from { transform: scale(1); }
-  to { transform: scale(1.06); }
-}
-
-.animate-slow-zoom {
-  animation: slowZoom 20s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .animate-slow-zoom { animation: none; transform: scale(1); }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;

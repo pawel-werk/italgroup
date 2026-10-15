@@ -1,9 +1,9 @@
 import { SITE_DATA } from '../data/content';
 import Reveal from './Reveal';
 import SectionHeader from './SectionHeader';
+import { PhoneIcon, MailIcon } from './Icons';
 
 export default function Contact() {
-  // Grupowanie zespołu
   const groupedTeam = SITE_DATA.team.reduce((acc, person) => {
     if (!acc[person.role]) acc[person.role] = [];
     acc[person.role].push(person);
@@ -11,69 +11,76 @@ export default function Contact() {
   }, {} as Record<string, typeof SITE_DATA.team>);
 
   return (
-    <section id="contact" className="py-32 bg-ivory">
+    <section id="contact" className="py-24 md:py-32 bg-mist">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <Reveal>
-          <SectionHeader number="03" title="Kontakt" />
+          <SectionHeader label="Kontakt" title="Porozmawiajmy o współpracy" />
         </Reveal>
 
-        <div className="grid lg:grid-cols-12 gap-16 lg:gap-24">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 mt-12">
+          
+          {/* Karta firmy */}
           <div className="lg:col-span-5">
             <Reveal>
-              <h3 className="text-xl font-serif text-stone mb-4">Siedziba Główna</h3>
-              <p className="text-3xl md:text-4xl font-serif mb-2 tracking-tight">{SITE_DATA.company.name}</p>
-              <p className="text-stone font-light text-lg mb-12">{SITE_DATA.company.address}</p>
-              
-              <div className="space-y-6 mb-16">
-                <a href={`tel:${SITE_DATA.company.phone.replace(/\s+/g, '')}`} className="block text-2xl font-serif hover:text-champagne transition-colors">
-                  {SITE_DATA.company.phone}
-                </a>
-                <a href={`mailto:${SITE_DATA.company.email}`} className="block text-2xl font-serif hover:text-champagne transition-colors">
-                  {SITE_DATA.company.email}
-                </a>
-              </div>
+              <div className="bg-sage-soft rounded-3xl p-8 md:p-12 h-full flex flex-col shadow-sm shadow-black/5">
+                <h3 className="text-2xl font-bold text-ink mb-6">{SITE_DATA.company.name}</h3>
+                <p className="text-sage-deep font-medium text-lg mb-12">{SITE_DATA.company.address}</p>
+                
+                <div className="space-y-6 mb-12">
+                  <a href={`tel:${SITE_DATA.company.phone.replace(/\s+/g, '')}`} className="flex items-center gap-4 text-xl font-bold text-ink hover:text-sage-deep transition-colors">
+                    <span className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-sage-deep"><PhoneIcon /></span>
+                    {SITE_DATA.company.phone}
+                  </a>
+                  <a href={`mailto:${SITE_DATA.company.email}`} className="flex items-center gap-4 text-xl font-bold text-ink hover:text-sage-deep transition-colors">
+                    <span className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-sage-deep"><MailIcon /></span>
+                    {SITE_DATA.company.email}
+                  </a>
+                </div>
 
-              <div className="pt-8 border-t border-sand flex gap-6 text-[11px] font-sans uppercase tracking-[0.2em] text-stone">
-                <span>NIP {SITE_DATA.company.nip}</span>
-                <span>KRS {SITE_DATA.company.krs}</span>
+                <div className="mt-auto pt-8 border-t border-sage/20 flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold text-sage-deep">
+                  <span>NIP: {SITE_DATA.company.nip}</span>
+                  <span>KRS: {SITE_DATA.company.krs}</span>
+                </div>
               </div>
             </Reveal>
           </div>
 
-          <div className="lg:col-span-7">
-            <div className="border-t border-sand">
-              {Object.entries(groupedTeam).map(([role, members], groupIdx) => (
-                <Reveal key={role} delay={groupIdx * 100}>
-                  <div className="flex flex-col md:flex-row border-b border-sand py-8 group">
-                    <div className="md:w-1/3 mb-4 md:mb-0">
-                      <span className="text-[11px] font-sans uppercase tracking-[0.25em] text-champagne">{role}</span>
-                    </div>
-                    <div className="md:w-2/3 space-y-6">
-                      {members.map((person, idx) => (
-                        <div key={idx} className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2">
-                          <h4 className="text-xl font-serif tracking-tight text-ink">{person.name}</h4>
-                          <div className="text-stone font-light flex gap-4 text-sm">
-                            {person.phone.length > 0 && (
-                              <a href={`tel:${person.phone[0].replace(/\s+/g, '')}`} className="hover:text-champagne transition-colors">
-                                {person.phone[0]}
-                              </a>
-                            )}
-                            <a href={`mailto:${person.email}`} className="hover:text-champagne transition-colors">
-                              {person.email}
-                            </a>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
+          {/* Karty zespołu */}
+          <div className="lg:col-span-7 flex flex-col gap-6">
+            {Object.entries(groupedTeam).map(([role, members], groupIdx) => (
+              <Reveal key={role} delay={groupIdx * 100}>
+                <div className="bg-white rounded-2xl p-6 md:p-8 border border-line shadow-sm shadow-black/5">
+                  <div className="mb-6">
+                    <span className="inline-block px-3 py-1 bg-mist text-ink rounded-full text-xs font-bold uppercase tracking-wide">
+                      {role}
+                    </span>
                   </div>
-                </Reveal>
-              ))}
-            </div>
+                  <div className="grid sm:grid-cols-2 gap-8">
+                    {members.map((person, idx) => (
+                      <div key={idx} className="flex flex-col gap-3">
+                        <h4 className="text-lg font-bold text-ink">{person.name}</h4>
+                        <div className="flex flex-col gap-2">
+                          {person.phone.length > 0 && (
+                            <a href={`tel:${person.phone[0].replace(/\s+/g, '')}`} className="flex items-center gap-2 text-grey font-medium hover:text-sage-deep transition-colors">
+                              <PhoneIcon className="w-4 h-4" /> {person.phone[0]}
+                            </a>
+                          )}
+                          <a href={`mailto:${person.email}`} className="flex items-center gap-2 text-grey font-medium hover:text-sage-deep transition-colors break-all">
+                            <MailIcon className="w-4 h-4 shrink-0" /> {person.email}
+                          </a>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </div>
 
+        {/* Mapa */}
         <Reveal delay={200}>
-          <div className="mt-24 w-full h-[420px] overflow-hidden bg-sand">
+          <div className="mt-12 w-full h-[400px] rounded-3xl overflow-hidden border border-line shadow-sm shadow-black/5 bg-white">
             <iframe 
               src="https://maps.google.com/maps?q=ul.+%C5%81%C4%85kowa+6%2C+55-095+Mirk%C3%B3w&t=&z=13&ie=UTF8&iwloc=&output=embed" 
               width="100%" 
@@ -83,7 +90,6 @@ export default function Contact() {
               loading="lazy" 
               referrerPolicy="no-referrer-when-downgrade"
               title="Lokalizacja ITAL-GROUP"
-              className="grayscale contrast-125 hover:grayscale-0 hover:contrast-100 transition-all duration-1000"
             />
           </div>
         </Reveal>
