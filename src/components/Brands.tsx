@@ -22,10 +22,10 @@ export default function Brands() {
                     <img 
                       src={brand.logo} 
                       alt={brand.name} 
-                      /* Dodano max-w-[200px] i max-h-16. 
-                         Dzięki temu szerokie loga nie rozjadą się na boki, 
-                         a wysokie urosną max do 64px, trzymając ładne proporcje */
-                      className="w-auto h-auto max-w-[200px] max-h-16 object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                      /* Zwiększono max-h-16 na max-h-24 i max-w do 220px. 
+                         Dzięki temu logotypy wyższe (jak Villeroy) mogą urosnąć w pionie, 
+                         a szerokie (Hitachi) nadal mają blokadę i nie zdominują kart. */
+                      className="w-auto h-auto max-w-[220px] max-h-24 object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
                       loading="lazy"
                     />
                   ) : (
