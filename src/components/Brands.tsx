@@ -22,9 +22,10 @@ export default function Brands() {
                     <img 
                       src={brand.logo} 
                       alt={brand.name} 
-                      /* Zastosowano sztywną wysokość (h-16 to 64px, czyli ok. 20-30% więcej niż pierwotne 48px).
-                         w-auto i max-w-full gwarantują, że każde logo będzie proporcjonalne i równej wielkości. */
-                      className="h-16 w-auto max-w-full object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                      /* Dodano max-w-[200px] i max-h-16. 
+                         Dzięki temu szerokie loga nie rozjadą się na boki, 
+                         a wysokie urosną max do 64px, trzymając ładne proporcje */
+                      className="w-auto h-auto max-w-[200px] max-h-16 object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
                       loading="lazy"
                     />
                   ) : (
