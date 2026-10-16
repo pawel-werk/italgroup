@@ -72,8 +72,6 @@ export const SITE_DATA = {
   ],
   team: [
     { role: "CEO", name: "Radosław Godula", phone: ["+48 512 478 478"], email: "ceo@italgroup.pl" },
-    { role: "Biuro", name: "Marek Kubski", phone: ["+48 512 376 017", "+48 71 385 08 96"], email: "marek@italgroup.pl" },
-    { role: "Biuro", name: "Sebastian Pawlak", phone: ["+48 502 693 812"], email: "sebastian@italgroup.pl" },
     { role: "Key Account Manager", name: "Grzegorz Mniszko", phone: ["+48 531 181 182"], email: "grzegorz.mniszko@italgroup.pl" },
     { role: "Manager sprzedaży", name: "Andrzej Kieslich", phone: ["+48 533 190 191"], email: "andrzej.kieslich@italgroup.pl" },
     { role: "Obsługa architektów", name: "Maciej Śledź", phone: ["+48 530 538 538"], email: "maciej.sledz@werkmebel.pl" },
