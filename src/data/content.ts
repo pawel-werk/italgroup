@@ -17,7 +17,7 @@ export const SITE_DATA = {
       name: "Villeroy & Boch", 
       logo: "https://upload.wikimedia.org/wikipedia/commons/2/2b/Villeroy_%26_Boch_logo_inverse.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original", 
       link: "http://www.villeroy-boch.pl/", 
-      desc: "Ekskluzywna ceramika kuchenna łącząca najwyższą jakość z ponadczasowym designem. Oferuje innowacyjne i trwałe zlewozmywaki, które harmonijnie wpasowują się w każde wnętrze. Produkty tej marki to gwarancja elegancji, higieny i niezawodności na lata.", 
+      desc: "Ekskluzywna ceramika kuchenna łącząca najwyższą jakość z ponadczasowym designem. Oferuje innowacyjne i trwałe zlewozmywaki, które harmonijnie wpasowują się w każde wnętrze. Produkty tej marki to gwarancja elegancji i niezawodności na lata.", 
       enabled: true 
     },
     { 
