@@ -21,6 +21,7 @@ export const SITE_DATA = {
     { name: "NODOR", logo: "https://www.nodor.com.pl/public/assets/LOGO/NODOR_claim_Mesa%20de%20trabajo%201.jpg", link: "https://www.nodor.com.pl/pl/", desc: "Eksperci w dziedzinie przechowywania wina i winiarek do zabudowy.", enabled: true },
     { name: "Temptech", logo: "https://temptech.pl/img/temptechpl-logo-16141599261.jpg", link: "https://temptech.pl/", desc: "Eksperci w dziedzinie przechowywania wina i winiarek do zabudowy.", enabled: true },
     { name: "Galvamet", logo: "https://www.galvamet.it/wp-content/uploads/2020/11/logo-menu-new.png", link: "https://galvamet.pl/", desc: "Eksperci w dziedzinie przechowywania wina i winiarek do zabudowy.", enabled: true },
+],
   team: [
     { role: "Biuro", name: "Marek Kubski", phone: ["+48 512 376 017", "+48 71 385 08 96"], email: "marek@italgroup.pl" },
     { role: "Biuro", name: "Sebastian Pawlak", phone: ["+48 502 693 812"], email: "sebastian@italgroup.pl" },
