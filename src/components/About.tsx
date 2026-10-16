@@ -16,13 +16,14 @@ export default function About() {
           <SectionHeader label="O firmie" title="Dlaczego ITAL-GROUP?" />
         </Reveal>
 
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start mt-12">
+        {/* Zmieniono items-start na items-stretch, aby kolumny miały równą wysokość */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-stretch mt-12">
           
           {/* Lewa strona - karty atutów */}
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-6 h-full">
             {pillars.map((pillar, idx) => (
-              <Reveal key={pillar.title} delay={idx * 150}>
-                <div className="bg-mist rounded-2xl p-8 border border-line flex gap-6 hover:bg-sage-soft/50 transition-colors">
+              <Reveal key={pillar.title} delay={idx * 150} className="flex-1 flex flex-col">
+                <div className="bg-mist rounded-2xl p-8 border border-line flex items-center gap-6 hover:bg-sage-soft/50 transition-colors flex-1 h-full">
                   <div className="shrink-0 w-12 h-12 rounded-full bg-sage-soft text-sage-deep flex items-center justify-center">
                     {pillar.icon}
                   </div>
@@ -36,16 +37,18 @@ export default function About() {
           </div>
 
           {/* Prawa strona - tekst i zdjęcie */}
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-6 h-full">
             <Reveal>
-              <div className="bg-sage-soft p-8 md:p-10 rounded-3xl">
+              <div className="bg-sage-soft p-8 md:p-10 rounded-3xl h-full flex items-center">
                 <p className="text-xl font-medium text-sage-deep leading-relaxed">
                   Jesteśmy doświadczonym, generalnym dystrybutorem sprzętu AGD i armatury w Polsce. Naszym celem jest upraszczanie procesów zakupowych dla branży wyposażenia wnętrz i dostarczanie niezawodnych produktów.
                 </p>
               </div>
             </Reveal>
-            <Reveal delay={200}>
-              <div className="rounded-3xl overflow-hidden aspect-[16/9] shadow-sm">
+            
+            {/* Usunięto sztywny aspect-[16/9] na rzecz flex-1, aby zdjęcie dopasowało się do reszty wysokości kolumny */}
+            <Reveal delay={200} className="flex-1 flex flex-col">
+              <div className="rounded-3xl overflow-hidden shadow-sm flex-1 min-h-[250px] w-full">
                 <img 
                   src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=1000&q=80" 
                   alt="Detale nowoczesnej armatury" 
