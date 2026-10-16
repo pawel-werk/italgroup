@@ -14,7 +14,7 @@ export const SITE_DATA = {
   },
   brands: [
     { name: "Villeroy & Boch", logo: "https://upload.wikimedia.org/wikipedia/commons/2/2b/Villeroy_%26_Boch_logo_inverse.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original", link: "http://www.villeroy-boch.pl/", desc: "Ekskluzywna ceramika i zlewozmywaki kuchenne najwyższej klasy.", enabled: true },
-    { name: "ILVE", logo: "https://www.italgroup.pl/image/ilve.jpg", link: "http://www.ilve.pl/", desc: "Ręcznie robione we Włoszech, profesjonalne bloki kuchenne wolnostojące.", enabled: true },
+    { name: "HITACHI", logo: "https://upload.wikimedia.org/wikipedia/commons/4/4d/Hitachi_logo.svg?utm_source=pl.wikipedia.org&utm_campaign=index&utm_content=original", link: "https://www.hitachi.com/en/", desc: "Ręcznie robione we Włoszech, profesjonalne bloki kuchenne wolnostojące.", enabled: true },
     { name: "Temptech", logo: "https://www.italgroup.pl/image/temptech.jpg", link: "http://www.temptech.pl/", desc: "Eksperci w dziedzinie przechowywania wina i winierek do zabudowy.", enabled: true },
     { name: "Gorenje Plus", logo: "https://www.italgroup.pl/image/gorenjeplus-logo.png", link: "http://www.gorenjeplus.com/pl/", desc: "Innowacyjne urządzenia z ekskluzywnych linii wzorniczych.", enabled: true },
     { name: "HITACHI", logo: null, link: "#", desc: "Nowoczesne chłodziarko-zamrażarki wielodrzwiowe o minimalistycznym wykończeniu.", enabled: true },
