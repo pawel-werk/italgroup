@@ -71,7 +71,7 @@ export default function Contact() {
                       {role}
                     </span>
                   </div>
-                  <div className="grid sm:grid-cols-2 gap-8">
+                  <div className="flex flex-col gap-8">
                     {members.map((person, idx) => (
                       <div key={idx} className="flex flex-col gap-3">
                         <h4 className="text-lg font-bold text-ink">{person.name}</h4>
@@ -81,7 +81,7 @@ export default function Contact() {
                               <PhoneIcon className="w-4 h-4 shrink-0" /> {person.phone[0]}
                             </a>
                           )}
-                          <a href={`mailto:${person.email}`} className="flex items-center gap-2 text-grey font-medium hover:text-sage-deep transition-colors break-all">
+                          <a href={`mailto:${person.email}`} className="flex items-center gap-2 text-grey font-medium hover:text-sage-deep transition-colors truncate">
                             <MailIcon className="w-4 h-4 shrink-0" /> {person.email}
                           </a>
                         </div>
