@@ -38,7 +38,13 @@ export default function Navbar() {
       aria-modal="true"
     >
       <div className="flex justify-between items-center mb-16">
-        <img src={SITE_DATA.logos.main} alt="ITAL-GROUP" className="h-6 object-contain" />
+        <a href="#" onClick={() => setMenuOpen(false)} className="inline-block rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-deep">
+          <img 
+            src={SITE_DATA.logos.main} 
+            alt="ITAL-GROUP" 
+            className="h-6 object-contain transition-all duration-300 hover:drop-shadow-md active:drop-shadow-md" 
+          />
+        </a>
         <button onClick={() => setMenuOpen(false)} aria-label="Zamknij menu" className="p-2 text-ink hover:text-sage-deep transition-colors bg-mist rounded-full">
           <CloseIcon />
         </button>
@@ -84,7 +90,8 @@ export default function Navbar() {
             <img 
               src={SITE_DATA.logos.main} 
               alt="ITAL-GROUP Logo" 
-              className="h-5 md:h-6 object-contain transition-all duration-300" 
+              // Dodano hover:drop-shadow-md oraz active:drop-shadow-md
+              className="h-5 md:h-6 object-contain transition-all duration-300 hover:drop-shadow-md active:drop-shadow-md" 
             />
           </a>
 
