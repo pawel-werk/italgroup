@@ -13,7 +13,7 @@ export const SITE_DATA = {
     mini: "https://i.postimg.cc/C1JL57gP/image.png"
   },
   brands: [
-    { name: "Villeroy & Boch", logo: "https://www.italgroup.pl/image/villeroy_boch.jpg", link: "http://www.villeroy-boch.pl/", desc: "Ekskluzywna ceramika i zlewozmywaki kuchenne najwyższej klasy.", enabled: true },
+    { name: "Villeroy & Boch", logo: "https://upload.wikimedia.org/wikipedia/commons/2/2b/Villeroy_%26_Boch_logo_inverse.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original", link: "http://www.villeroy-boch.pl/", desc: "Ekskluzywna ceramika i zlewozmywaki kuchenne najwyższej klasy.", enabled: true },
     { name: "ILVE", logo: "https://www.italgroup.pl/image/ilve.jpg", link: "http://www.ilve.pl/", desc: "Ręcznie robione we Włoszech, profesjonalne bloki kuchenne wolnostojące.", enabled: true },
     { name: "Temptech", logo: "https://www.italgroup.pl/image/temptech.jpg", link: "http://www.temptech.pl/", desc: "Eksperci w dziedzinie przechowywania wina i winierek do zabudowy.", enabled: true },
     { name: "Gorenje Plus", logo: "https://www.italgroup.pl/image/gorenjeplus-logo.png", link: "http://www.gorenjeplus.com/pl/", desc: "Innowacyjne urządzenia z ekskluzywnych linii wzorniczych.", enabled: true },
