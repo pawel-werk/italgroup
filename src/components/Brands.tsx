@@ -17,14 +17,14 @@ export default function Brands() {
           {activeBrands.map((brand, idx) => (
             <Reveal key={brand.name} delay={idx * 100}>
               <div className="bg-white rounded-2xl p-8 border border-line h-full flex flex-col shadow-sm shadow-black/5 hover:shadow-md transition-shadow duration-300 group">
-                {/* Zmieniono h-20 na h-28 oraz dodano justify-center aby wyśrodkować logo */}
                 <div className="h-28 flex items-center justify-center mb-6">
                   {brand.logo ? (
                     <img 
                       src={brand.logo} 
                       alt={brand.name} 
-                      // Zmieniono max-h-12 na max-h-20 aby powiększyć logo
-                      className="max-h-20 max-w-full object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                      /* Zastosowano sztywną wysokość (h-16 to 64px, czyli ok. 20-30% więcej niż pierwotne 48px).
+                         w-auto i max-w-full gwarantują, że każde logo będzie proporcjonalne i równej wielkości. */
+                      className="h-16 w-auto max-w-full object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
                       loading="lazy"
                     />
                   ) : (
