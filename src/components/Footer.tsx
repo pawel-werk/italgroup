@@ -9,24 +9,33 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-start justify-between gap-10">
           
           <div className="max-w-sm">
-            <img 
-              src={SITE_DATA.logos.main} 
-              alt="ITAL-GROUP" 
-              className="h-6 mb-4 object-contain" 
-              loading="lazy" 
-            />
+            {/* Dodano link do strony głównej i efekty szarości/koloru na hover i active */}
+            <a 
+              href="#" 
+              className="inline-block rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-deep"
+              aria-label="Wróć na górę strony"
+            >
+              <img 
+                src={SITE_DATA.logos.main} 
+                alt="ITAL-GROUP" 
+                className="h-6 mb-4 object-contain grayscale opacity-60 transition-all duration-300 hover:grayscale-0 hover:opacity-100 active:grayscale-0 active:opacity-100" 
+                loading="lazy" 
+              />
+            </a>
             <p className="text-grey font-medium text-sm leading-relaxed">
               Wyłączny dystrybutor i autoryzowany przedstawiciel europejskich marek wyposażenia wnętrz klasy premium w Polsce.
             </p>
           </div>
           
           <div className="flex flex-col sm:flex-row gap-10 md:gap-24 font-medium text-sm text-ink">
-            <div>
+            {/* Dodano text-center dla wyśrodkowania */}
+            <div className="text-center">
               <p className="text-sage-deep font-bold mb-3">Adres</p>
               <p className="text-grey mb-1">{SITE_DATA.company.address}</p>
               <p className="text-grey">NIP: {SITE_DATA.company.nip}</p>
             </div>
-            <div>
+            {/* Dodano text-center dla wyśrodkowania */}
+            <div className="text-center">
               <p className="text-sage-deep font-bold mb-3">Kontakt</p>
               <a href={`tel:${SITE_DATA.company.phone.replace(/\s+/g, '')}`} className="block text-grey hover:text-sage-deep transition-colors mb-1">
                 {SITE_DATA.company.phone}

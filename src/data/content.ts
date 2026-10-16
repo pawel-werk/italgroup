@@ -2,7 +2,7 @@ export const SITE_DATA = {
   company: {
     name: "ITALGROUP Spółka z o.o.",
     address: "ul. Łąkowa 6, 55-095 Mirków k. Wrocławia",
-    nip: "894-30-18-012",
+    nip: "894 30 18 012",
     krs: "0000376717",
     regon: "931624872",
     phone: "+48 71 385 08 96",
