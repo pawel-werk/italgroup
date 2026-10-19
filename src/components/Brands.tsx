@@ -1,10 +1,17 @@
+'use client';
+
+import { useState } from 'react';
 import { SITE_DATA } from '../data/content';
 import Reveal from './Reveal';
 import SectionHeader from './SectionHeader';
 import { ArrowRight } from './Icons';
 
 export default function Brands() {
+  const [showAll, setShowAll] = useState(false);
   const activeBrands = SITE_DATA.brands.filter(b => b.enabled);
+  
+  // Ograniczamy liczbę wyświetlanych marek do 4, jeśli showAll jest fałszem
+  const displayedBrands = showAll ? activeBrands : activeBrands.slice(0, 4);
 
   return (
     <section id="brands" className="py-24 md:py-32 bg-mist">
@@ -14,7 +21,7 @@ export default function Brands() {
         </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
-          {activeBrands.map((brand, idx) => {
+          {displayedBrands.map((brand, idx) => {
             // Sprawdzamy, czy to logo jest domyślnie białe
             const isWhiteLogo = brand.name === 'KITCHORA';
 
@@ -28,8 +35,8 @@ export default function Brands() {
                         alt={brand.name} 
                         className={`w-auto h-auto max-w-[220px] max-h-24 object-contain transition-all duration-300 ${
                           isWhiteLogo 
-                            ? 'invert opacity-50 group-hover:opacity-100' // Białe logo -> czarne (odwrócone), szare przez opacity, pełne czarne na hover
-                            : 'grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100' // Standardowe logotypy
+                            ? 'invert opacity-50 group-hover:opacity-100' 
+                            : 'grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100' 
                         }`}
                         loading="lazy"
                       />
@@ -61,6 +68,20 @@ export default function Brands() {
             );
           })}
         </div>
+
+        {/* Przycisk Pokaż wszystko / Pokaż mniej */}
+        {activeBrands.length > 4 && (
+          <Reveal delay={200}>
+            <div className="mt-12 flex justify-center">
+              <button
+                onClick={() => setShowAll(!showAll)}
+                className="px-8 py-3.5 bg-ink text-white rounded-full text-sm font-bold tracking-wide hover:bg-opacity-80 transition-all duration-300"
+              >
+                {showAll ? 'Pokaż mniej' : 'Pokaż wszystko'}
+              </button>
+            </div>
+          </Reveal>
+        )}
       </div>
     </section>
   );
