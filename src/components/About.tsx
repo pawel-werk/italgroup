@@ -13,7 +13,7 @@ export default function About() {
     <section id="about" className="py-24 md:py-32 bg-white">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <Reveal>
-          <SectionHeader label="O firmie" title="Dlaczego ITAL-GROUP?" />
+          <SectionHeader label="O firmie" title="Dlaczego ITALGROUP?" />
         </Reveal>
 
         {/* Zmieniono items-start na items-stretch, aby kolumny miały równą wysokość */}
