@@ -1,132 +1,94 @@
-import { useState, useEffect, useRef } from 'react';
-import { createPortal } from 'react-dom';
-import { SITE_DATA } from '../data/content';
-import { MenuIcon, CloseIcon } from './Icons';
+import React, { useState, useEffect } from 'react';
+import { MenuIcon, XIcon } from './Icons';
+import { Logo, LogoFallback } from './Logo';
 
-export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
+export const Navbar: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  useEffect(() => {
-    if (menuOpen) {
-      document.body.style.overflow = 'hidden';
-      const handleEscape = (e: KeyboardEvent) => e.key === 'Escape' && setMenuOpen(false);
-      window.addEventListener('keydown', handleEscape);
-      return () => {
-        document.body.style.overflow = '';
-        window.removeEventListener('keydown', handleEscape);
-      };
-    }
-  }, [menuOpen]);
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isOpen) setIsOpen(false);
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    if (isOpen) document.body.style.overflow = 'hidden';
+    else document.body.style.overflow = '';
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
 
   const links = [
-    { name: 'Nasze portfolio', href: '#brands' },
-    { name: 'O firmie', href: '#about' },
+    { name: 'Oferta', href: '#oferta' },
+    { name: 'Produkcja', href: '#produkcja' },
+    { name: 'Realizacje', href: '#realizacje' },
+    { name: 'Katalog', href: '#/katalog' },
+    { name: 'Kontakt', href: '#kontakt' },
   ];
 
-  const mobileMenu = menuOpen && typeof document !== 'undefined' ? createPortal(
-    <div 
-      className="fixed inset-0 z-[100] bg-white flex flex-col px-6 py-6 transition-opacity duration-300"
-      role="dialog"
-      aria-modal="true"
-    >
-      <div className="flex justify-between items-center mb-16">
-        <a href="#" onClick={() => setMenuOpen(false)} className="inline-block rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-deep">
-          <img 
-            src={SITE_DATA.logos.main} 
-            alt="ITAL-GROUP" 
-            className="h-6 object-contain transition-all duration-300 hover:drop-shadow-md active:drop-shadow-md" 
-          />
-        </a>
-        <button onClick={() => setMenuOpen(false)} aria-label="Zamknij menu" className="p-2 text-ink hover:text-sage-deep transition-colors bg-mist rounded-full">
-          <CloseIcon />
-        </button>
-      </div>
-      <nav className="flex flex-col gap-6 mt-4" ref={menuRef}>
-        {links.map((link) => (
-          <a 
-            key={link.name} 
-            href={link.href} 
-            className="text-3xl font-semibold text-ink hover:text-sage-deep transition-colors"
-            onClick={() => setMenuOpen(false)}
-          >
-            {link.name}
-          </a>
-        ))}
-        <a 
-          href="#contact" 
-          className="text-3xl font-semibold text-ink hover:text-sage-deep transition-colors mt-4"
-          onClick={() => setMenuOpen(false)}
-        >
-          Kontakt
-        </a>
-      </nav>
-      <div className="mt-auto border-t border-line pt-8 flex flex-col gap-3 text-sm font-medium text-grey">
-        <a href={`tel:${SITE_DATA.company.phone.replace(/\s+/g, '')}`} className="hover:text-sage-deep transition-colors">{SITE_DATA.company.phone}</a>
-        <a href={`mailto:${SITE_DATA.company.email}`} className="hover:text-sage-deep transition-colors">{SITE_DATA.company.email}</a>
-      </div>
-    </div>,
-    document.body
-  ) : null;
-
   return (
-    <>
-      <header
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-          scrolled 
-            ? 'bg-white/95 backdrop-blur-md border-b border-line py-4 shadow-sm shadow-black/5' 
-            : 'bg-white/70 backdrop-blur-md border-b border-black/5 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] py-6'
-        }`}
-      >
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 flex items-center justify-between">
-          <a href="#" className="flex items-center z-50 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-deep">
-            <img 
-              src={SITE_DATA.logos.main} 
-              alt="ITAL-GROUP Logo" 
-              // Dodano hover:drop-shadow-md oraz active:drop-shadow-md
-              className="h-5 md:h-6 object-contain transition-all duration-300 hover:drop-shadow-md active:drop-shadow-md" 
-            />
-          </a>
+    <header className="sticky top-0 z-40 bg-paper/90 backdrop-blur border-b border-line">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+        <a href="#/" className="flex items-center gap-2 outline-none focus-visible:ring-2 focus-visible:ring-brand">
+          <Logo className="h-6 md:h-8" />
+          <LogoFallback />
+        </a>
 
-          <nav className="hidden md:flex gap-8 items-center bg-white/60 backdrop-blur-md px-6 py-2 rounded-full border border-line shadow-sm shadow-black/5">
+        {/* Desktop Nav */}
+        <div className="hidden md:flex gap-8 items-center">
+          {links.map((link) => (
+            <a key={link.name} href={link.href} className="text-ink font-medium hover:text-brand transition-colors">
+              {link.name}
+            </a>
+          ))}
+          <a href="#kontakt" className="bg-brand text-white px-5 py-2.5 rounded-lg font-medium hover:bg-brand-dark transition-colors">
+            Zapytaj o wycenę
+          </a>
+        </div>
+
+        {/* Mobile Toggle */}
+        <button
+          className="md:hidden p-2 text-ink"
+          onClick={() => setIsOpen(true)}
+          aria-expanded={isOpen}
+          aria-label="Otwórz menu"
+        >
+          <MenuIcon className="w-6 h-6" />
+        </button>
+      </nav>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="fixed inset-0 z-50 bg-paper flex flex-col pt-16 px-6">
+          <button
+            className="absolute top-4 right-4 p-2 text-ink"
+            onClick={() => setIsOpen(false)}
+            aria-label="Zamknij menu"
+          >
+            <XIcon className="w-8 h-8" />
+          </button>
+          <div className="flex flex-col gap-6 text-xl mt-8">
+            <a href="#/" onClick={() => setIsOpen(false)} className="font-bold text-ink">Strona główna</a>
             {links.map((link) => (
               <a 
                 key={link.name} 
                 href={link.href} 
-                className="text-sm font-medium text-ink hover:text-sage-deep transition-colors"
+                onClick={() => setIsOpen(false)}
+                className="font-medium text-muted hover:text-brand"
               >
                 {link.name}
               </a>
             ))}
-          </nav>
-
-          <div className="hidden md:flex">
             <a 
-              href="#contact" 
-              className="text-sm font-medium px-6 py-2.5 rounded-full bg-ink text-white hover:bg-sage-deep transition-colors shadow-sm shadow-black/5"
+              href="#kontakt" 
+              onClick={() => setIsOpen(false)}
+              className="mt-4 bg-brand text-center text-white px-5 py-3 rounded-lg font-medium"
             >
-              Skontaktuj się
+              Zapytaj o wycenę
             </a>
           </div>
-
-          <button 
-            className="md:hidden z-50 p-2 text-ink bg-mist rounded-full"
-            onClick={() => setMenuOpen(true)}
-            aria-label="Otwórz menu"
-            aria-expanded={menuOpen}
-          >
-            <MenuIcon />
-          </button>
         </div>
-      </header>
-      {mobileMenu}
-    </>
+      )}
+    </header>
   );
-}
+};
