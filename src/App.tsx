@@ -1,38 +1,23 @@
-import { useHashRoute } from './hooks/useHashRoute'
-import { HomePage } from './pages/HomePage'
-import { GalleryPage } from './pages/GalleryPage'
-import { CatalogPage } from './pages/CatalogPage'
-import { TopBar } from './components/TopBar'
-import { Navbar } from './components/Navbar'
-import { Footer } from './components/Footer'
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import Brands from './components/Brands';
+import About from './components/About';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
 
 function App() {
-  const { path } = useHashRoute()
-
-  const renderPage = () => {
-    switch (path) {
-      case 'galeria':
-        return <GalleryPage />
-      case 'katalog':
-        return <CatalogPage />
-      default:
-        return <HomePage />
-    }
-  }
-
   return (
-    <div className="flex flex-col min-h-screen">
-      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-paper focus:text-brand">
-        Przejdź do treści
-      </a>
-      <TopBar />
+    <div className="relative w-full flex flex-col min-h-screen" id="main-content">
       <Navbar />
-      <main id="main-content" className="flex-grow">
-        {renderPage()}
+      <main className="flex-grow">
+        <Hero />
+        <Brands />
+        <About />
+        <Contact />
       </main>
       <Footer />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

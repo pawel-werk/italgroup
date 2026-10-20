@@ -1,48 +1,80 @@
-// UZUPEŁNIJ: Podmień dane firmy
-export const companyData = {
-  phone: "+48 531 187 187",
-  email: "info@mores.pl",
-  addressLine1: "Łąkowa 6 Mirków k. Wrocławia",
-  addressLine2: "55-095 Mirków",
-  workingHours: "Pn. - Pt.: 8:00 - 17:00"
+export const SITE_DATA = {
+  company: {
+    name: "ITALGROUP Spółka z o.o.",
+    address: "ul. Łąkowa 6, 55-095 Mirków k. Wrocławia",
+    nip: "894 30 18 012",
+    krs: "0000376717",
+    regon: "931624872",
+    phone: "+48 71 385 08 96",
+    email: "biuro@italgroup.pl"
+  },
+  logos: {
+    main: "https://i.postimg.cc/C1JL57gP/image.png",
+    mini: "https://i.postimg.cc/C1JL57gP/image.png"
+  },
+  brands: [
+    { 
+      name: "Villeroy & Boch", 
+      logo: "https://upload.wikimedia.org/wikipedia/commons/2/2b/Villeroy_%26_Boch_logo_inverse.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original", 
+      link: "http://www.villeroy-boch.pl/", 
+      desc: "Ekskluzywna ceramika kuchenna łącząca najwyższą jakość z ponadczasowym designem. Oferuje innowacyjne i trwałe zlewozmywaki, które harmonijnie wpasowują się w każde wnętrze. Produkty tej marki to gwarancja elegancji i niezawodności na lata.", 
+      enabled: true 
+    },
+    { 
+      name: "HITACHI", 
+      logo: "https://upload.wikimedia.org/wikipedia/commons/4/4d/Hitachi_logo.svg?utm_source=pl.wikipedia.org&utm_campaign=index&utm_content=original", 
+      link: "https://www.hitachi.com/en/", 
+      desc: "Światowy lider innowacji, oferujący zaawansowane chłodziarko-zamrażarki oraz duże AGD o wyjątkowej pojemności. Ich urządzenia wyróżniają się flagowymi systemami No Frost, precyzyjnymi komorami świeżości i technologią inwerterową.", 
+      enabled: true 
+    },
+    { 
+      name: "KITCHORA", 
+      logo: "https://www.kitchora.eu/wp-content/uploads/2026/04/kitchora-2.svg", 
+      link: "https://www.kitchora.eu/en/", 
+      desc: "Awangardowa armatura kuchenna, która doskonale łączy innowacyjną formę z praktyczną funkcją. Wykorzystuje trwałe materiały i nowoczesne detale wykończenia dla najbardziej wymagających użytkowników. Wprowadza do kuchni wyrazisty, architektoniczny akcent.", 
+      enabled: true 
+    },
+    { 
+      name: "Fulgor Milano", 
+      logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8oQsp2BwSEZELzNi7LdHTqgnjfSEgSEfA2ziowmVIOaR52LKgEiw3EN0&s=10", 
+      link: "https://www.fulgor-milano.com/int/en", 
+      desc: "Luksusowy sprzęt do gotowania z głębokim, włoskim rodowodem i rzemieślniczą pasją. Oferuje precyzyjne piekarniki, płyty grzewcze i urządzenia do zabudowy o niezwykle wyrafinowanym wzornictwie.", 
+      enabled: true 
+    },
+    { 
+      name: "Cata", 
+      logo: "https://www.cata.com/media/ibuealzo/logo-cata.svg", 
+      link: "https://www.cata.com/en-pl/", 
+      desc: "Renomowany hiszpański producent specjalizujący się w systemach wentylacji oraz niezawodnym sprzęcie AGD do zabudowy. Dostarcza wysoce wydajne i ciche okapy, a także płyty i piekarniki ułatwiające codzienne gotowanie.", 
+      enabled: true 
+    },
+    { 
+      name: "NODOR", 
+      logo: "https://www.nodor.com.pl/public/assets/LOGO/NODOR_claim_Mesa%20de%20trabajo%201.jpg", 
+      link: "https://www.nodor.com.pl/pl/", 
+      desc: "Marka premium dedykowana zaawansowanym systemom ekstrakcji powietrza oraz sprzętom kuchennym wysokiej klasy. Jej okapy i urządzenia do zabudowy charakteryzują się potężną mocą, energooszczędnością i niezwykle cichą pracą.", 
+      enabled: true 
+    },
+    { 
+      name: "Temptech", 
+      logo: "https://temptech.pl/img/temptechpl-logo-16141599261.jpg", 
+      link: "https://temptech.pl/", 
+      desc: "Skandynawscy eksperci w dziedzinie profesjonalnego przechowywania wina, oferujący winiarki do zabudowy i wolnostojące. Gwarantują precyzyjną kontrolę temperatury, optymalną wilgotność oraz ochronę przed promieniowaniem UV.", 
+      enabled: true 
+    },
+    { 
+      name: "Galvamet", 
+      logo: "https://www.galvamet.it/wp-content/uploads/2020/11/logo-menu-new.png", 
+      link: "https://galvamet.pl/", 
+      desc: "Włoski ekspert w dziedzinie zintegrowanych rozwiązań wyciągowych oraz innowacyjnych okapów kuchennych. Produkty marki słyną z niezwykłej efektywności w usuwaniu oparów i bezbłędnej integracji ze strukturą mebli.", 
+      enabled: true 
+    }
+  ],
+  team: [
+    { role: "CEO", name: "Radosław Godula", phone: ["+48 512 478 478"], email: "ceo@italgroup.pl" },
+    { role: "Key Account Manager", name: "Grzegorz Mniszko", phone: ["+48 531 181 182"], email: "grzegorz.mniszko@italgroup.pl" },
+    { role: "Manager sprzedaży", name: "Andrzej Kieslich", phone: ["+48 533 190 191"], email: "andrzej.kieslich@italgroup.pl" },
+    { role: "Obsługa architektów", name: "Maciej Śledź", phone: ["+48 530 538 538"], email: "maciej.sledz@werkmebel.pl" },
+    { role: "Serwis", name: "Mirosław Krzystek", phone: [], email: "serwis@italgroup.pl" }
+  ]
 };
-
-export const topbarMessages = [
-  {
-    id: 1,
-    text: "Nowość: kolekcja frontów dostępna w naszym nowym katalogu PDF.",
-    linkLabel: "Zobacz katalog",
-    href: "#/katalog"
-  },
-  {
-    id: 2,
-    text: "Trend sezonu: matowe, głębokie kolory i frezowane wzory we frontach meblowych.",
-    linkLabel: "Galeria",
-    href: "#/galeria"
-  },
-  {
-    id: 3,
-    text: "Realizujemy zlecenia nietypowe dla stolarzy i pracowni.",
-    linkLabel: "Zapytaj o wycenę",
-    href: "#kontakt"
-  }
-];
-
-export const faqData = [
-  {
-    question: "Czy realizujecie zlecenia nietypowe według projektu?",
-    answer: "Tak, nasza wycinarnia i lakiernia pozwalają nam realizować zamówienia poza standardowymi wymiarami i wzorami. Skontaktuj się z nami, aby wycenić projekt."
-  },
-  {
-    question: "Czy można zamówić u Was pojedyncze fronty (np. na wymianę)?",
-    answer: "Tak, realizujemy zlecenia zarówno na serie, jak i pojedyncze sztuki czy doróbki dla stolarzy."
-  },
-  {
-    question: "Czy oferujecie dostawę?",
-    answer: "Posiadamy własne zaplecze logistyczne. Warunki i koszty dostawy ustalamy indywidualnie do każdego zamówienia. Szczegóły podajemy podczas wyceny."
-  },
-  {
-    question: "Jak przygotować zapytanie o wycenę?",
-    answer: "Prosimy o podanie wymiarów, preferowanego wykończenia (kolor, mat/połysk, rodzaj frezu), ilości sztuk oraz planowanego terminu. Najlepiej skorzystać z formularza kontaktowego na stronie."
-  }
-];

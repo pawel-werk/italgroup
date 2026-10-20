@@ -1,58 +1,59 @@
-import React from 'react';
-import { ArrowRight } from './Icons';
-import { Reveal } from './Reveal';
+import Reveal from './Reveal';
 
-export const Hero: React.FC = () => {
+export default function Hero() {
   return (
-    <section className="relative bg-stone overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-24 md:pt-32 md:pb-40 grid md:grid-cols-2 gap-12 items-center">
-        <div className="z-10">
-          <Reveal>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-ink leading-tight tracking-tight mb-6">
-              Fronty meblowe i zlecenia nietypowe. <br/>
-              <span className="text-brand">Od cięcia po lakierowanie.</span>
-            </h1>
-          </Reveal>
-          <Reveal delay={100}>
-            <p className="text-lg text-muted mb-8 max-w-lg">
-              Własne, kompletne zaplecze produkcyjne w jednym miejscu dla stolarzy i producentów mebli. Bez ograniczeń co do różnorodności i złożoności.
-            </p>
-          </Reveal>
-          <Reveal delay={200}>
-            <div className="flex flex-wrap gap-4">
-              <a href="#kontakt" className="bg-brand text-white px-6 py-3 rounded-lg font-medium hover:bg-brand-dark transition-colors inline-flex items-center gap-2">
-                Zapytaj o wycenę <ArrowRight className="w-5 h-5" />
-              </a>
-              <a href="#/katalog" className="bg-white border border-line text-ink px-6 py-3 rounded-lg font-medium hover:bg-stone transition-colors">
-                Zobacz katalog
-              </a>
-            </div>
-          </Reveal>
+    // Zmniejszone paddingi pionowe z py-32/py-40 na py-16 na mobile i pt-28 pb-12 lg:pt-36 lg:pb-16 na desktopie
+    <section className="relative pt-24 pb-12 md:pt-32 md:pb-16 lg:pt-36 lg:pb-16 bg-white overflow-hidden">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+        {/* Zmniejszony gap z 12-16 na 8-12 dla ściślejszego ułożenia */}
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           
-          <Reveal delay={300}>
-            <div className="mt-12 flex flex-wrap gap-x-8 gap-y-4 text-sm font-medium text-ink">
-              <span className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-brand rounded-full"></span> Własna produkcja
+          {/* Lewa strona - treści */}
+          <div className="max-w-2xl py-2">
+            <Reveal>
+              <span className="inline-block px-4 py-1.5 rounded-full bg-sage-soft text-sage-deep text-sm font-semibold mb-4 lg:mb-6">
+                Nowoczesne rozwiązania B2B
               </span>
-              <span className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-brand rounded-full"></span> Lakiernia
-              </span>
-              <span className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-brand rounded-full"></span> Magazyn i logistyka
-              </span>
-            </div>
-          </Reveal>
-        </div>
-        
-        <div className="relative z-0 h-64 md:h-full min-h-[400px] rounded-2xl overflow-hidden shadow-xl">
-          <img 
-            src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1000&q=80" 
-            alt="Warsztat i fronty meblowe" 
-            fetchPriority="high"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
+              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.1] tracking-tight text-ink mb-4 lg:mb-6">
+                Świeże spojrzenie na dystrybucję wyposażenia premium.
+              </h1>
+            </Reveal>
+            
+            <Reveal delay={150}>
+              <p className="text-base md:text-lg text-grey font-medium mb-6 lg:mb-10 leading-relaxed max-w-xl">
+                Dostarczamy wyselekcjonowane marki AGD i rzetelne wsparcie dla salonów, architektów i deweloperów. Budujemy partnerstwa oparte na jakości.
+              </p>
+            </Reveal>
+            
+            <Reveal delay={300}>
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <a href="#brands" className="bg-white border-2 border-line text-ink px-6 py-3 rounded-full font-semibold text-center hover:border-sage-deep hover:text-sage-deep transition-colors text-sm">
+                  Odkryj marki
+                </a>
+                <a href="#contact" className="bg-sage-deep text-white px-6 py-3 rounded-full font-semibold text-center hover:bg-ink transition-colors shadow-sm text-sm">
+                  Rozpocznij współpracę
+                </a>
+              </div>
+            </Reveal>
+          </div>
+
+          {/* Prawa strona - mniejsze, proporcjonalne zdjęcie bez pustych przestrzeni */}
+          <div className="relative mt-4 lg:mt-0 flex justify-center lg:justify-end">
+            <Reveal delay={200} className="w-full">
+              {/* Ograniczono max-h-[500px] i zmniejszono proporcje na aspect-[4/3] (zamiast pionowego [4/5]), aby zmniejszyć wysokość */}
+              <div className="relative rounded-3xl overflow-hidden aspect-[4/3] lg:aspect-[4/3] max-h-[420px] lg:max-h-[500px] w-full shadow-sm shadow-black/5">
+                <img 
+                  src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1200&q=80" 
+                  alt="Jasna i nowoczesna kuchnia premium" 
+                  className="w-full h-full object-cover"
+                  fetchPriority="high"
+                />
+              </div>
+            </Reveal>
+          </div>
+
         </div>
       </div>
     </section>
   );
-};
+}
